@@ -226,44 +226,14 @@ func (c *APIClient) prepareRequest(
 		}
 	}
 
-	// add form parameters and file if available.
-	if len(formParams) > 0 || (len(fileBytes) > 0 && fileName != "") {
+	// Add form parameters
+	if len(formParams) > 0 {
 		if body != nil {
 			return nil, errors.New("Cannot specify postBody and multipart form at the same time.")
 		}
-		body = &bytes.Buffer{}
-		w := multipart.NewWriter(body)
-
-		for k, v := range formParams {
-			for _, iv := range v {
-				if strings.HasPrefix(k, "@") { // file
-					err = addFile(w, k[1:], iv)
-					if err != nil {
-						return nil, err
-					}
-				} else { // form value
-					w.WriteField(k, iv)
-				}
-			}
-		}
-		if len(fileBytes) > 0 && fileName != "" {
-			w.Boundary()
-			//_, fileNm := filepath.Split(fileName)
-			part, err := w.CreateFormFile("file", filepath.Base(fileName))
-			if err != nil {
-				return nil, err
-			}
-			_, err = part.Write(fileBytes)
-			if err != nil {
-				return nil, err
-			}
-			// Set the Boundary in the Content-Type
-			headerParams["Content-Type"] = w.FormDataContentType()
-		}
-
-		// Set Content-Length
+		body = bytes.NewBuffer([]byte(formParams.Encode()))
+		headerParams["Content-Type"] = "application/x-www-form-urlencoded"
 		headerParams["Content-Length"] = fmt.Sprintf("%d", body.Len())
-		w.Close()
 	}
 
 	// Setup path and query parameters
