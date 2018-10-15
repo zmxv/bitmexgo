@@ -7,15 +7,15 @@ type String struct {
 	value string
 }
 
-func (o String) IsSet() bool {
+func (o *String) IsSet() bool {
 	return o.set
 }
 
-func (o String) Value() string {
+func (o *String) Value() string {
 	return o.value
 }
 
-func (o String) Set(v string) {
+func (o *String) Set(v string) {
 	o.set = true
 	o.value = v
 }
@@ -25,15 +25,15 @@ type Bool struct {
 	value bool
 }
 
-func (o Bool) IsSet() bool {
+func (o *Bool) IsSet() bool {
 	return o.set
 }
 
-func (o Bool) Value() bool {
+func (o *Bool) Value() bool {
 	return o.value
 }
 
-func (o Bool) Set(v bool) {
+func (o *Bool) Set(v bool) {
 	o.set = true
 	o.value = v
 }
@@ -43,15 +43,15 @@ type Int struct {
 	value int
 }
 
-func (o Int) IsSet() bool {
+func (o *Int) IsSet() bool {
 	return o.set
 }
 
-func (o Int) Value() int {
+func (o *Int) Value() int {
 	return o.value
 }
 
-func (o Int) Set(v int) {
+func (o *Int) Set(v int) {
 	o.set = true
 	o.value = v
 }
@@ -61,15 +61,15 @@ type Float32 struct {
 	value float32
 }
 
-func (o Float32) IsSet() bool {
+func (o *Float32) IsSet() bool {
 	return o.set
 }
 
-func (o Float32) Value() float32 {
+func (o *Float32) Value() float32 {
 	return o.value
 }
 
-func (o Float32) Set(v float32) {
+func (o *Float32) Set(v float32) {
 	o.set = true
 	o.value = v
 }
@@ -79,15 +79,15 @@ type Float64 struct {
 	value float64
 }
 
-func (o Float64) IsSet() bool {
+func (o *Float64) IsSet() bool {
 	return o.set
 }
 
-func (o Float64) Value() float64 {
+func (o *Float64) Value() float64 {
 	return o.value
 }
 
-func (o Float64) Set(v float64) {
+func (o *Float64) Set(v float64) {
 	o.set = true
 	o.value = v
 }
@@ -97,15 +97,15 @@ type Time struct {
 	value time.Time
 }
 
-func (o Time) IsSet() bool {
+func (o *Time) IsSet() bool {
 	return o.set
 }
 
-func (o Time) Value() time.Time {
+func (o *Time) Value() time.Time {
 	return o.value
 }
 
-func (o Time) Set(v time.Time) {
+func (o *Time) Set(v time.Time) {
 	o.set = true
 	o.value = v
 }
