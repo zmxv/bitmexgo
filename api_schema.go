@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/antihax/optional"
+	"github.com/zmxv/bitmexgo/optional"
 )
 
 // Linger please
