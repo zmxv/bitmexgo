@@ -1689,7 +1689,7 @@ type UserRequestWithdrawalOpts struct {
 	Fee      optional.Float64
 }
 
-func (a *UserApiService) UserRequestWithdrawal(ctx context.Context, currency string, amount float32, address string, localVarOptionals *UserRequestWithdrawalOpts) (Transaction, *http.Response, error) {
+func (a *UserApiService) UserRequestWithdrawal(ctx context.Context, currency string, amount int, address string, localVarOptionals *UserRequestWithdrawalOpts) (Transaction, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
