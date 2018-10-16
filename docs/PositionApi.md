@@ -29,9 +29,9 @@ Optional parameters are passed through a pointer to a PositionGetOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter** | **optional.String**| Table filter. For example, send {\&quot;symbol\&quot;: \&quot;XBTUSD\&quot;}. | 
- **columns** | **optional.String**| Which columns to fetch. For example, send [\&quot;columnName\&quot;]. | 
- **count** | **optional.Float32**| Number of rows to fetch. | 
+ **filter** | **optional.String**| Table filter. For example, send {\&quot;symbol\&quot;: \&quot;XBTUSD\&quot;}. |
+ **columns** | **optional.String**| Which columns to fetch. For example, send [\&quot;columnName\&quot;]. |
+ **count** | **optional.Int**| Number of rows to fetch. |
 
 ### Return type
 
@@ -57,7 +57,7 @@ Enable isolated margin or cross margin per-position.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **symbol** | **string**| Position symbol to isolate. | 
+  **symbol** | **string**| Position symbol to isolate. |
  **optional** | ***PositionIsolateMarginOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -92,8 +92,8 @@ Transfer equity in or out of a position.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **symbol** | **string**| Symbol of position to isolate. | 
-  **amount** | **float32**| Amount to transfer, in Satoshis. May be negative. | 
+  **symbol** | **string**| Symbol of position to isolate. |
+  **amount** | **int**| Amount to transfer, in Satoshis. May be negative. |
 
 ### Return type
 
@@ -119,8 +119,8 @@ Choose leverage for a position.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **symbol** | **string**| Symbol of position to adjust. | 
-  **leverage** | **float64**| Leverage value. Send a number between 0.01 and 100 to enable isolated margin with a fixed leverage. Send 0 to enable cross margin. | 
+  **symbol** | **string**| Symbol of position to adjust. |
+  **leverage** | **float64**| Leverage value. Send a number between 0.01 and 100 to enable isolated margin with a fixed leverage. Send 0 to enable cross margin. |
 
 ### Return type
 
@@ -146,8 +146,8 @@ Update your risk limit.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **symbol** | **string**| Symbol of position to update risk limit on. | 
-  **riskLimit** | **float32**| New Risk Limit, in Satoshis. | 
+  **symbol** | **string**| Symbol of position to update risk limit on. |
+  **riskLimit** | **int**| New Risk Limit, in Satoshis. |
 
 ### Return type
 

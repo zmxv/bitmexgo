@@ -36,7 +36,7 @@ Cancel a withdrawal.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **token** | **string**|  | 
+  **token** | **string**|  |
 
 ### Return type
 
@@ -71,7 +71,7 @@ Optional parameters are passed through a pointer to a UserCheckReferralCodeOpts 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **referralCode** | **optional.String**|  | 
+ **referralCode** | **optional.String**|  |
 
 ### Return type
 
@@ -97,7 +97,7 @@ Confirm your email address with a token.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **token** | **string**|  | 
+  **token** | **string**|  |
 
 ### Return type
 
@@ -123,7 +123,7 @@ Confirm two-factor auth for this account. If using a Yubikey, simply send a toke
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **token** | **string**| Token from your selected TFA type. | 
+  **token** | **string**| Token from your selected TFA type. |
  **optional** | ***UserConfirmEnableTFAOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -132,7 +132,7 @@ Optional parameters are passed through a pointer to a UserConfirmEnableTFAOpts s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **type_** | **optional.String**| Two-factor auth type. Supported types: &#39;GA&#39; (Google Authenticator), &#39;Yubikey&#39; | 
+ **type_** | **optional.String**| Two-factor auth type. Supported types: &#39;GA&#39; (Google Authenticator), &#39;Yubikey&#39; |
 
 ### Return type
 
@@ -158,7 +158,7 @@ Confirm a withdrawal.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **token** | **string**|  | 
+  **token** | **string**|  |
 
 ### Return type
 
@@ -184,7 +184,7 @@ Disable two-factor auth for this account.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **token** | **string**| Token from your selected TFA type. | 
+  **token** | **string**| Token from your selected TFA type. |
  **optional** | ***UserDisableTFAOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -193,7 +193,7 @@ Optional parameters are passed through a pointer to a UserDisableTFAOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **type_** | **optional.String**| Two-factor auth type. Supported types: &#39;GA&#39; (Google Authenticator) | 
+ **type_** | **optional.String**| Two-factor auth type. Supported types: &#39;GA&#39; (Google Authenticator) |
 
 ### Return type
 
@@ -538,7 +538,7 @@ Optional parameters are passed through a pointer to a UserRequestEnableTFAOpts s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type_** | **optional.String**| Two-factor auth type. Supported types: &#39;GA&#39; (Google Authenticator) | 
+ **type_** | **optional.String**| Two-factor auth type. Supported types: &#39;GA&#39; (Google Authenticator) |
 
 ### Return type
 
@@ -567,8 +567,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **currency** | **string**| Currency you&#39;re withdrawing. Options: &#x60;XBt&#x60; | [default to XBt]
-  **amount** | **float32**| Amount of withdrawal currency. | 
-  **address** | **string**| Destination Address. | 
+  **amount** | **int**| Amount of withdrawal currency. |
+  **address** | **string**| Destination Address. |
  **optional** | ***UserRequestWithdrawalOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -579,8 +579,8 @@ Name | Type | Description  | Notes
 
 
 
- **otpToken** | **optional.String**| 2FA token. Required if 2FA is enabled on your account. | 
- **fee** | **optional.Float64**| Network fee for Bitcoin withdrawals. If not specified, a default value will be calculated based on Bitcoin network conditions. You will have a chance to confirm this via email. | 
+ **otpToken** | **optional.String**| 2FA token. Required if 2FA is enabled on your account. |
+ **fee** | **optional.Float64**| Network fee for Bitcoin withdrawals. If not specified, a default value will be calculated based on Bitcoin network conditions. You will have a chance to confirm this via email. |
 
 ### Return type
 
@@ -606,7 +606,7 @@ Save user preferences.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **prefs** | **string**|  | 
+  **prefs** | **string**|  |
  **optional** | ***UserSavePreferencesOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -648,14 +648,14 @@ Optional parameters are passed through a pointer to a UserUpdateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **firstname** | **optional.String**|  | 
- **lastname** | **optional.String**|  | 
- **oldPassword** | **optional.String**|  | 
- **newPassword** | **optional.String**|  | 
- **newPasswordConfirm** | **optional.String**|  | 
- **username** | **optional.String**| Username can only be set once. To reset, email support. | 
- **country** | **optional.String**| Country of residence. | 
- **pgpPubKey** | **optional.String**| PGP Public Key. If specified, automated emails will be sentwith this key. | 
+ **firstname** | **optional.String**|  |
+ **lastname** | **optional.String**|  |
+ **oldPassword** | **optional.String**|  |
+ **newPassword** | **optional.String**|  |
+ **newPasswordConfirm** | **optional.String**|  |
+ **username** | **optional.String**| Username can only be set once. To reset, email support. |
+ **country** | **optional.String**| Country of residence. |
+ **pgpPubKey** | **optional.String**| PGP Public Key. If specified, automated emails will be sentwith this key. |
 
 ### Return type
 

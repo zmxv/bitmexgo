@@ -11,11 +11,11 @@ type TradeBin struct {
 	High            float64   `json:"high,omitempty"`
 	Low             float64   `json:"low,omitempty"`
 	Close           float64   `json:"close,omitempty"`
-	Trades          float32   `json:"trades,omitempty"`
-	Volume          float32   `json:"volume,omitempty"`
+	Trades          int       `json:"trades,omitempty"`
+	Volume          int       `json:"volume,omitempty"`
 	Vwap            float64   `json:"vwap,omitempty"`
-	LastSize        float32   `json:"lastSize,omitempty"`
-	Turnover        float32   `json:"turnover,omitempty"`
+	LastSize        int       `json:"lastSize,omitempty"`
+	Turnover        int       `json:"turnover,omitempty"`
 	HomeNotional    float64   `json:"homeNotional,omitempty"`
 	ForeignNotional float64   `json:"foreignNotional,omitempty"`
 }

@@ -298,7 +298,7 @@ PositionApiService Transfer equity in or out of a position.
 
 @return Position
 */
-func (a *PositionApiService) PositionTransferIsolatedMargin(ctx context.Context, symbol string, amount float32) (Position, *http.Response, error) {
+func (a *PositionApiService) PositionTransferIsolatedMargin(ctx context.Context, symbol string, amount int) (Position, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -546,7 +546,7 @@ PositionApiService Update your risk limit.
 
 @return Position
 */
-func (a *PositionApiService) PositionUpdateRiskLimit(ctx context.Context, symbol string, riskLimit float32) (Position, *http.Response, error) {
+func (a *PositionApiService) PositionUpdateRiskLimit(ctx context.Context, symbol string, riskLimit int) (Position, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}

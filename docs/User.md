@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | [optional] [default to null]
-**OwnerId** | **float32** |  | [optional] [default to null]
+**Id** | **int** |  | [optional] [default to null]
+**OwnerId** | **int** |  | [optional] [default to null]
 **Firstname** | **string** |  | [optional] [default to null]
 **Lastname** | **string** |  | [optional] [default to null]
 **Username** | **string** |  | [default to null]

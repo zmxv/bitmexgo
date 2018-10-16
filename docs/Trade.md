@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 **Timestamp** | [**time.Time**](time.Time.md) |  | [default to null]
 **Symbol** | **string** |  | [default to null]
 **Side** | **string** |  | [optional] [default to null]
-**Size** | **float32** |  | [optional] [default to null]
+**Size** | **int** |  | [optional] [default to null]
 **Price** | **float64** |  | [optional] [default to null]
 **TickDirection** | **string** |  | [optional] [default to null]
 **TrdMatchID** | **string** |  | [optional] [default to null]
-**GrossValue** | **float32** |  | [optional] [default to null]
+**GrossValue** | **int** |  | [optional] [default to null]
 **HomeNotional** | **float64** |  | [optional] [default to null]
 **ForeignNotional** | **float64** |  | [optional] [default to null]
 

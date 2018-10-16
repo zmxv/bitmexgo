@@ -6,8 +6,8 @@ import (
 
 // Account Operations
 type User struct {
-	Id           float32          `json:"id,omitempty"`
-	OwnerId      float32          `json:"ownerId,omitempty"`
+	Id           int              `json:"id,omitempty"`
+	OwnerId      int              `json:"ownerId,omitempty"`
 	Firstname    string           `json:"firstname,omitempty"`
 	Lastname     string           `json:"lastname,omitempty"`
 	Username     string           `json:"username"`

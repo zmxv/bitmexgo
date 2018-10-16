@@ -5,19 +5,19 @@ import (
 )
 
 type Affiliate struct {
-	Account         float32   `json:"account"`
+	Account         int       `json:"account"`
 	Currency        string    `json:"currency"`
-	PrevPayout      float32   `json:"prevPayout,omitempty"`
-	PrevTurnover    float32   `json:"prevTurnover,omitempty"`
-	PrevComm        float32   `json:"prevComm,omitempty"`
+	PrevPayout      int       `json:"prevPayout,omitempty"`
+	PrevTurnover    int       `json:"prevTurnover,omitempty"`
+	PrevComm        int       `json:"prevComm,omitempty"`
 	PrevTimestamp   time.Time `json:"prevTimestamp,omitempty"`
-	ExecTurnover    float32   `json:"execTurnover,omitempty"`
-	ExecComm        float32   `json:"execComm,omitempty"`
-	TotalReferrals  float32   `json:"totalReferrals,omitempty"`
-	TotalTurnover   float32   `json:"totalTurnover,omitempty"`
-	TotalComm       float32   `json:"totalComm,omitempty"`
+	ExecTurnover    int       `json:"execTurnover,omitempty"`
+	ExecComm        int       `json:"execComm,omitempty"`
+	TotalReferrals  int       `json:"totalReferrals,omitempty"`
+	TotalTurnover   int       `json:"totalTurnover,omitempty"`
+	TotalComm       int       `json:"totalComm,omitempty"`
 	PayoutPcnt      float64   `json:"payoutPcnt,omitempty"`
-	PendingPayout   float32   `json:"pendingPayout,omitempty"`
+	PendingPayout   int       `json:"pendingPayout,omitempty"`
 	Timestamp       time.Time `json:"timestamp,omitempty"`
-	ReferrerAccount float64   `json:"referrerAccount,omitempty"`
+	ReferrerAccount int       `json:"referrerAccount,omitempty"`
 }

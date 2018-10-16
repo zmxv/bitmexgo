@@ -4,11 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TransactID** | **string** |  | [default to null]
-**Account** | **float32** |  | [optional] [default to null]
+**Account** | **int** |  | [optional] [default to null]
 **Currency** | **string** |  | [optional] [default to null]
 **TransactType** | **string** |  | [optional] [default to null]
-**Amount** | **float32** |  | [optional] [default to null]
-**Fee** | **float32** |  | [optional] [default to null]
+**Amount** | **int** |  | [optional] [default to null]
+**Fee** | **int** |  | [optional] [default to null]
 **TransactStatus** | **string** |  | [optional] [default to null]
 **Address** | **string** |  | [optional] [default to null]
 **Tx** | **string** |  | [optional] [default to null]

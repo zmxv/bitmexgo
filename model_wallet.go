@@ -5,27 +5,27 @@ import (
 )
 
 type Wallet struct {
-	Account          float32   `json:"account"`
+	Account          int       `json:"account"`
 	Currency         string    `json:"currency"`
-	PrevDeposited    float32   `json:"prevDeposited,omitempty"`
-	PrevWithdrawn    float32   `json:"prevWithdrawn,omitempty"`
-	PrevTransferIn   float32   `json:"prevTransferIn,omitempty"`
-	PrevTransferOut  float32   `json:"prevTransferOut,omitempty"`
-	PrevAmount       float32   `json:"prevAmount,omitempty"`
+	PrevDeposited    int       `json:"prevDeposited,omitempty"`
+	PrevWithdrawn    int       `json:"prevWithdrawn,omitempty"`
+	PrevTransferIn   int       `json:"prevTransferIn,omitempty"`
+	PrevTransferOut  int       `json:"prevTransferOut,omitempty"`
+	PrevAmount       int       `json:"prevAmount,omitempty"`
 	PrevTimestamp    time.Time `json:"prevTimestamp,omitempty"`
-	DeltaDeposited   float32   `json:"deltaDeposited,omitempty"`
-	DeltaWithdrawn   float32   `json:"deltaWithdrawn,omitempty"`
-	DeltaTransferIn  float32   `json:"deltaTransferIn,omitempty"`
-	DeltaTransferOut float32   `json:"deltaTransferOut,omitempty"`
-	DeltaAmount      float32   `json:"deltaAmount,omitempty"`
-	Deposited        float32   `json:"deposited,omitempty"`
-	Withdrawn        float32   `json:"withdrawn,omitempty"`
-	TransferIn       float32   `json:"transferIn,omitempty"`
-	TransferOut      float32   `json:"transferOut,omitempty"`
-	Amount           float32   `json:"amount,omitempty"`
-	PendingCredit    float32   `json:"pendingCredit,omitempty"`
-	PendingDebit     float32   `json:"pendingDebit,omitempty"`
-	ConfirmedDebit   float32   `json:"confirmedDebit,omitempty"`
+	DeltaDeposited   int       `json:"deltaDeposited,omitempty"`
+	DeltaWithdrawn   int       `json:"deltaWithdrawn,omitempty"`
+	DeltaTransferIn  int       `json:"deltaTransferIn,omitempty"`
+	DeltaTransferOut int       `json:"deltaTransferOut,omitempty"`
+	DeltaAmount      int       `json:"deltaAmount,omitempty"`
+	Deposited        int       `json:"deposited,omitempty"`
+	Withdrawn        int       `json:"withdrawn,omitempty"`
+	TransferIn       int       `json:"transferIn,omitempty"`
+	TransferOut      int       `json:"transferOut,omitempty"`
+	Amount           int       `json:"amount,omitempty"`
+	PendingCredit    int       `json:"pendingCredit,omitempty"`
+	PendingDebit     int       `json:"pendingDebit,omitempty"`
+	ConfirmedDebit   int       `json:"confirmedDebit,omitempty"`
 	Timestamp        time.Time `json:"timestamp,omitempty"`
 	Addr             string    `json:"addr,omitempty"`
 	Script           string    `json:"script,omitempty"`
