@@ -21,8 +21,8 @@ type ChatApiService service
 ChatApiService Get chat messages.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ChatGetOpts - Optional Parameters:
-     * @param "Count" (optional.Float32) -  Number of results to fetch.
-     * @param "Start" (optional.Float32) -  Starting ID for results.
+     * @param "Count" (optional.Int) -  Number of results to fetch.
+     * @param "Start" (optional.Int) -  Starting ID for results.
      * @param "Reverse" (optional.Bool) -  If true, will sort results newest first.
      * @param "ChannelID" (optional.Float64) -  Channel id. GET /chat/channels for ids. Leave blank for all.
 
@@ -30,8 +30,8 @@ ChatApiService Get chat messages.
 */
 
 type ChatGetOpts struct {
-	Count     optional.Float32
-	Start     optional.Float32
+	Count     optional.Int
+	Start     optional.Int
 	Reverse   optional.Bool
 	ChannelID optional.Float64
 }

@@ -24,8 +24,8 @@ QuoteApiService Get Quotes.
      * @param "Symbol" (optional.String) -  Instrument symbol. Send a bare series (e.g. XBU) to get data for the nearest expiring contract in that series.  You can also send a timeframe, e.g. &#x60;XBU:monthly&#x60;. Timeframes are &#x60;daily&#x60;, &#x60;weekly&#x60;, &#x60;monthly&#x60;, &#x60;quarterly&#x60;, and &#x60;biquarterly&#x60;.
      * @param "Filter" (optional.String) -  Generic table filter. Send JSON key/value pairs, such as &#x60;{\&quot;key\&quot;: \&quot;value\&quot;}&#x60;. You can key on individual fields, and do more advanced querying on timestamps. See the [Timestamp Docs](https://www.bitmex.com/app/restAPI#Timestamp-Filters) for more details.
      * @param "Columns" (optional.String) -  Array of column names to fetch. If omitted, will return all columns.  Note that this method will always return item keys, even when not specified, so you may receive more columns that you expect.
-     * @param "Count" (optional.Float32) -  Number of results to fetch.
-     * @param "Start" (optional.Float32) -  Starting point for results.
+     * @param "Count" (optional.Int) -  Number of results to fetch.
+     * @param "Start" (optional.Int) -  Starting point for results.
      * @param "Reverse" (optional.Bool) -  If true, will sort results newest first.
      * @param "StartTime" (optional.Time) -  Starting date filter for results.
      * @param "EndTime" (optional.Time) -  Ending date filter for results.
@@ -37,8 +37,8 @@ type QuoteGetOpts struct {
 	Symbol    optional.String
 	Filter    optional.String
 	Columns   optional.String
-	Count     optional.Float32
-	Start     optional.Float32
+	Count     optional.Int
+	Start     optional.Int
 	Reverse   optional.Bool
 	StartTime optional.Time
 	EndTime   optional.Time
@@ -190,8 +190,8 @@ QuoteApiService Get previous quotes in time buckets.
      * @param "Symbol" (optional.String) -  Instrument symbol. Send a bare series (e.g. XBU) to get data for the nearest expiring contract in that series.  You can also send a timeframe, e.g. &#x60;XBU:monthly&#x60;. Timeframes are &#x60;daily&#x60;, &#x60;weekly&#x60;, &#x60;monthly&#x60;, &#x60;quarterly&#x60;, and &#x60;biquarterly&#x60;.
      * @param "Filter" (optional.String) -  Generic table filter. Send JSON key/value pairs, such as &#x60;{\&quot;key\&quot;: \&quot;value\&quot;}&#x60;. You can key on individual fields, and do more advanced querying on timestamps. See the [Timestamp Docs](https://www.bitmex.com/app/restAPI#Timestamp-Filters) for more details.
      * @param "Columns" (optional.String) -  Array of column names to fetch. If omitted, will return all columns.  Note that this method will always return item keys, even when not specified, so you may receive more columns that you expect.
-     * @param "Count" (optional.Float32) -  Number of results to fetch.
-     * @param "Start" (optional.Float32) -  Starting point for results.
+     * @param "Count" (optional.Int) -  Number of results to fetch.
+     * @param "Start" (optional.Int) -  Starting point for results.
      * @param "Reverse" (optional.Bool) -  If true, will sort results newest first.
      * @param "StartTime" (optional.Time) -  Starting date filter for results.
      * @param "EndTime" (optional.Time) -  Ending date filter for results.
@@ -205,8 +205,8 @@ type QuoteGetBucketedOpts struct {
 	Symbol    optional.String
 	Filter    optional.String
 	Columns   optional.String
-	Count     optional.Float32
-	Start     optional.Float32
+	Count     optional.Int
+	Start     optional.Int
 	Reverse   optional.Bool
 	StartTime optional.Time
 	EndTime   optional.Time

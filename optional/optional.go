@@ -56,24 +56,6 @@ func (o *Int) Set(v int) {
 	o.value = v
 }
 
-type Float32 struct {
-	set   bool
-	value float32
-}
-
-func (o *Float32) IsSet() bool {
-	return o.set
-}
-
-func (o *Float32) Value() float32 {
-	return o.value
-}
-
-func (o *Float32) Set(v float32) {
-	o.set = true
-	o.value = v
-}
-
 type Float64 struct {
 	set   bool
 	value float64

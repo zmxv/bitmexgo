@@ -24,7 +24,7 @@ See &lt;a href&#x3D;\&quot;http://www.onixs.biz/fix-dictionary/5.0.SP2/msgType_A
  * @param optional nil or *PositionGetOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Table filter. For example, send {\&quot;symbol\&quot;: \&quot;XBTUSD\&quot;}.
      * @param "Columns" (optional.String) -  Which columns to fetch. For example, send [\&quot;columnName\&quot;].
-     * @param "Count" (optional.Float32) -  Number of rows to fetch.
+     * @param "Count" (optional.Int) -  Number of rows to fetch.
 
 @return []Position
 */
@@ -32,7 +32,7 @@ See &lt;a href&#x3D;\&quot;http://www.onixs.biz/fix-dictionary/5.0.SP2/msgType_A
 type PositionGetOpts struct {
 	Filter  optional.String
 	Columns optional.String
-	Count   optional.Float32
+	Count   optional.Int
 }
 
 func (a *PositionApiService) PositionGet(ctx context.Context, localVarOptionals *PositionGetOpts) ([]Position, *http.Response, error) {

@@ -22,13 +22,13 @@ OrderBookApiService Get current orderbook in vertical format.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param symbol Instrument symbol. Send a series (e.g. XBT) to get data for the nearest contract in that series.
  * @param optional nil or *OrderBookGetL2Opts - Optional Parameters:
-     * @param "Depth" (optional.Float32) -  Orderbook depth per side. Send 0 for full depth.
+     * @param "Depth" (optional.Int) -  Orderbook depth per side. Send 0 for full depth.
 
 @return []OrderBookL2
 */
 
 type OrderBookGetL2Opts struct {
-	Depth optional.Float32
+	Depth optional.Int
 }
 
 func (a *OrderBookApiService) OrderBookGetL2(ctx context.Context, symbol string, localVarOptionals *OrderBookGetL2Opts) ([]OrderBookL2, *http.Response, error) {

@@ -26,9 +26,9 @@ Send an &#x60;orderID&#x60; or &#x60;origClOrdID&#x60; to identify the order you
      * @param "OrigClOrdID" (optional.String) -  Client Order ID. See POST /order.
      * @param "ClOrdID" (optional.String) -  Optional new Client Order ID, requires &#x60;origClOrdID&#x60;.
      * @param "SimpleOrderQty" (optional.Float64) -  Optional order quantity in units of the underlying instrument (i.e. Bitcoin).
-     * @param "OrderQty" (optional.Float32) -  Optional order quantity in units of the instrument (i.e. contracts).
+     * @param "OrderQty" (optional.Int) -  Optional order quantity in units of the instrument (i.e. contracts).
      * @param "SimpleLeavesQty" (optional.Float64) -  Optional leaves quantity in units of the underlying instrument (i.e. Bitcoin). Useful for amending partially filled orders.
-     * @param "LeavesQty" (optional.Float32) -  Optional leaves quantity in units of the instrument (i.e. contracts). Useful for amending partially filled orders.
+     * @param "LeavesQty" (optional.Int) -  Optional leaves quantity in units of the instrument (i.e. contracts). Useful for amending partially filled orders.
      * @param "Price" (optional.Float64) -  Optional limit price for &#39;Limit&#39;, &#39;StopLimit&#39;, and &#39;LimitIfTouched&#39; orders.
      * @param "StopPx" (optional.Float64) -  Optional trigger price for &#39;Stop&#39;, &#39;StopLimit&#39;, &#39;MarketIfTouched&#39;, and &#39;LimitIfTouched&#39; orders. Use a price below the current price for stop-sell orders and buy-if-touched orders.
      * @param "PegOffsetValue" (optional.Float64) -  Optional trailing offset from the current price for &#39;Stop&#39;, &#39;StopLimit&#39;, &#39;MarketIfTouched&#39;, and &#39;LimitIfTouched&#39; orders; use a negative offset for stop-sell orders and buy-if-touched orders. Optional offset from the peg price for &#39;Pegged&#39; orders.
@@ -42,9 +42,9 @@ type OrderAmendOpts struct {
 	OrigClOrdID     optional.String
 	ClOrdID         optional.String
 	SimpleOrderQty  optional.Float64
-	OrderQty        optional.Float32
+	OrderQty        optional.Int
 	SimpleLeavesQty optional.Float64
-	LeavesQty       optional.Float32
+	LeavesQty       optional.Int
 	Price           optional.Float64
 	StopPx          optional.Float64
 	PegOffsetValue  optional.Float64
@@ -874,8 +874,8 @@ To get open orders only, send {\&quot;open\&quot;: true} in the filter param.  S
      * @param "Symbol" (optional.String) -  Instrument symbol. Send a bare series (e.g. XBU) to get data for the nearest expiring contract in that series.  You can also send a timeframe, e.g. &#x60;XBU:monthly&#x60;. Timeframes are &#x60;daily&#x60;, &#x60;weekly&#x60;, &#x60;monthly&#x60;, &#x60;quarterly&#x60;, and &#x60;biquarterly&#x60;.
      * @param "Filter" (optional.String) -  Generic table filter. Send JSON key/value pairs, such as &#x60;{\&quot;key\&quot;: \&quot;value\&quot;}&#x60;. You can key on individual fields, and do more advanced querying on timestamps. See the [Timestamp Docs](https://www.bitmex.com/app/restAPI#Timestamp-Filters) for more details.
      * @param "Columns" (optional.String) -  Array of column names to fetch. If omitted, will return all columns.  Note that this method will always return item keys, even when not specified, so you may receive more columns that you expect.
-     * @param "Count" (optional.Float32) -  Number of results to fetch.
-     * @param "Start" (optional.Float32) -  Starting point for results.
+     * @param "Count" (optional.Int) -  Number of results to fetch.
+     * @param "Start" (optional.Int) -  Starting point for results.
      * @param "Reverse" (optional.Bool) -  If true, will sort results newest first.
      * @param "StartTime" (optional.Time) -  Starting date filter for results.
      * @param "EndTime" (optional.Time) -  Ending date filter for results.
@@ -887,8 +887,8 @@ type OrderGetOrdersOpts struct {
 	Symbol    optional.String
 	Filter    optional.String
 	Columns   optional.String
-	Count     optional.Float32
-	Start     optional.Float32
+	Count     optional.Int
+	Start     optional.Int
 	Reverse   optional.Bool
 	StartTime optional.Time
 	EndTime   optional.Time
@@ -1040,9 +1040,9 @@ OrderApiService Create a new order.
  * @param optional nil or *OrderNewOpts - Optional Parameters:
      * @param "Side" (optional.String) -  Order side. Valid options: Buy, Sell. Defaults to &#39;Buy&#39; unless &#x60;orderQty&#x60; or &#x60;simpleOrderQty&#x60; is negative.
      * @param "SimpleOrderQty" (optional.Float64) -  Order quantity in units of the underlying instrument (i.e. Bitcoin).
-     * @param "OrderQty" (optional.Float32) -  Order quantity in units of the instrument (i.e. contracts).
+     * @param "OrderQty" (optional.Int) -  Order quantity in units of the instrument (i.e. contracts).
      * @param "Price" (optional.Float64) -  Optional limit price for &#39;Limit&#39;, &#39;StopLimit&#39;, and &#39;LimitIfTouched&#39; orders.
-     * @param "DisplayQty" (optional.Float32) -  Optional quantity to display in the book. Use 0 for a fully hidden order.
+     * @param "DisplayQty" (optional.Int) -  Optional quantity to display in the book. Use 0 for a fully hidden order.
      * @param "StopPx" (optional.Float64) -  Optional trigger price for &#39;Stop&#39;, &#39;StopLimit&#39;, &#39;MarketIfTouched&#39;, and &#39;LimitIfTouched&#39; orders. Use a price below the current price for stop-sell orders and buy-if-touched orders. Use &#x60;execInst&#x60; of &#39;MarkPrice&#39; or &#39;LastPrice&#39; to define the current price used for triggering.
      * @param "ClOrdID" (optional.String) -  Optional Client Order ID. This clOrdID will come back on the order and any related executions.
      * @param "ClOrdLinkID" (optional.String) -  Optional Client Order Link ID for contingent orders.
@@ -1060,9 +1060,9 @@ OrderApiService Create a new order.
 type OrderNewOpts struct {
 	Side            optional.String
 	SimpleOrderQty  optional.Float64
-	OrderQty        optional.Float32
+	OrderQty        optional.Int
 	Price           optional.Float64
-	DisplayQty      optional.Float32
+	DisplayQty      optional.Int
 	StopPx          optional.Float64
 	ClOrdID         optional.String
 	ClOrdLinkID     optional.String
