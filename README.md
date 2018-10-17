@@ -14,17 +14,53 @@ Notable changes:
 
 This package also differs from an alternative library at https://github.com/qct/bitmex-go in the following ways:
 - `bitmexgo` employs strongly-typed structs for API parameters instead of `map[string]interface{}`.
-- `bitmexgo` is forked from a more recent version of the swagger code.
+- `bitmexgo` is forked from a more recent version of the swagger-generated code.
+- `bitmexgo` depends on no external packages and is compatible with Google App Engine.
 
 ## Installation
-Run `go get github.com/zmxv/bitmexgo` then import it as follows:
+```bash
+go get github.com/zmxv/bitmexgo
+```
+
+## Usage
+
 ```golang
 import "github.com/zmxv/bitmexgo"
+
+// Get your API key/secret pair at https://www.bitmex.com/app/apiKeys
+apiKey := "..."
+apiSecret := "..."
+
+// Create an authentication context
+auth := bitmexgo.NewAPIKeyContext(apiKey, apiSecret)
+
+// Create a shareable API client instance
+apiClient := bitmexgo.NewAPIClient(bitmexgo.NewConfiguration())
+
+// Create a testnet API client instance
+testnetClient := bitmexgo.NewAPIClient(bitmexgo.NewTestnetConfiguration())
+
+// Call APIs without parameters by passing the auth context.
+// e.g. getting exchange-wide turnover and volume statistics:
+stats, res, err := apiClient.StatsApi.StatsGet(auth)
+
+// Call APIs with default parameters by passing the auth context and a nil.
+// e.g. getting all open positions:
+pos, res, err := apiClient.PositionApi.PositionGet(auth, nil)
+
+// Call APIs with additional parameters by constructing a corresponding XXXOpts struct.
+// e.g. submitting a limit order to buy 20000 contracts of XBTUSD at $6000.5:
+var params bitmexgo.OrderNewOpts
+params.OrdType.Set("Limit")
+params.Side.Set("Buy")
+params.OrderQty.Set(20000)
+params.Price.Set(6000.5)
+order, res, err := apiClient.OrderApi.OrderNew(auth, "XBTUSD", &params)
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://localhost/api/v1*
+All URIs are relative to *https://www.bitmex.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -139,46 +175,8 @@ Class | Method | HTTP request | Description
  - [UserCommission](docs/UserCommission.md)
  - [UserPreferences](docs/UserPreferences.md)
  - [Wallet](docs/Wallet.md)
- - [XAny](docs/XAny.md)
+ 
 
-
-## Documentation For Authorization
-
-## apiKey
-- **Type**: API key
-
-Example
-```golang
-auth := context.WithValue(context.Background(), sw.ContextAPIKey, sw.APIKey{
-	Key: "APIKEY",
-	Prefix: "Bearer", // Omit if not necessary.
-})
-r, err := client.Service.Operation(auth, args)
-```
-## apiNonce
-- **Type**: API key
-
-Example
-```golang
-auth := context.WithValue(context.Background(), sw.ContextAPIKey, sw.APIKey{
-	Key: "APIKEY",
-	Prefix: "Bearer", // Omit if not necessary.
-})
-r, err := client.Service.Operation(auth, args)
-```
-## apiSignature
-- **Type**: API key
-
-Example
-```golang
-auth := context.WithValue(context.Background(), sw.ContextAPIKey, sw.APIKey{
-	Key: "APIKEY",
-	Prefix: "Bearer", // Omit if not necessary.
-})
-r, err := client.Service.Operation(auth, args)
-```
-
-## Author
+## Bitmex customer support
 
 support@bitmex.com
-
