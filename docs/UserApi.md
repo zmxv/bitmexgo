@@ -486,7 +486,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UserMinWithdrawalFee**
-> interface{} UserMinWithdrawalFee(ctx, optional)
+> UserWithdrawalFees UserMinWithdrawalFee(ctx, optional)
 Get the minimum withdrawal fee for a currency.
 
 This is changed based on network conditions to ensure timely withdrawals. During network congestion, this may be high. The fee is returned in the same currency.
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**interface{}**](interface{}.md)
+[**UserWithdrawalFees**](UserWithdrawalFees.md)
 
 ### Authorization
 

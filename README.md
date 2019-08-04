@@ -174,6 +174,7 @@ Class | Method | HTTP request | Description
  - [User](docs/User.md)
  - [UserCommission](docs/UserCommission.md)
  - [UserPreferences](docs/UserPreferences.md)
+ - [UserWithdrawalFees](docs/UserWithdrawalFees.md)
  - [Wallet](docs/Wallet.md)
  
 
