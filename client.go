@@ -264,22 +264,24 @@ func (c *APIClient) prepareRequest(
 	}
 
 	// auth
-	apiKey, ok := ctx.Value(ContextAPIKey).(APIKey)
-	if ok {
-		headerParams["api-key"] = apiKey.Key
-		expires := strconv.FormatInt(time.Now().Unix()+60, 10) // 60 seconds
-		headerParams["api-expires"] = expires
-		payload := method + url.Path
-		if url.RawQuery != "" {
-			payload += "?" + url.RawQuery
+	if ctx != nil {
+		apiKey, ok := ctx.Value(ContextAPIKey).(APIKey)
+		if ok {
+			headerParams["api-key"] = apiKey.Key
+			expires := strconv.FormatInt(time.Now().Unix()+60, 10) // 60 seconds
+			headerParams["api-expires"] = expires
+			payload := method + url.Path
+			if url.RawQuery != "" {
+				payload += "?" + url.RawQuery
+			}
+			payload += expires
+			if body != nil {
+				payload += body.String()
+			}
+			h := hmac.New(sha256.New, []byte(apiKey.Secret))
+			h.Write([]byte(payload))
+			headerParams["api-signature"] = hex.EncodeToString(h.Sum(nil))
 		}
-		payload += expires
-		if body != nil {
-			payload += body.String()
-		}
-		h := hmac.New(sha256.New, []byte(apiKey.Secret))
-		h.Write([]byte(payload))
-		headerParams["api-signature"] = hex.EncodeToString(h.Sum(nil))
 	}
 
 	// add header parameters, if any
