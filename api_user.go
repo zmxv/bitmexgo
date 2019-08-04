@@ -1482,20 +1482,20 @@ This is changed based on network conditions to ensure timely withdrawals. During
  * @param optional nil or *UserMinWithdrawalFeeOpts - Optional Parameters:
      * @param "Currency" (optional.String) -
 
-@return interface{}
+@return UserWithdrawalFees
 */
 
 type UserMinWithdrawalFeeOpts struct {
 	Currency optional.String
 }
 
-func (a *UserApiService) UserMinWithdrawalFee(ctx context.Context, localVarOptionals *UserMinWithdrawalFeeOpts) (interface{}, *http.Response, error) {
+func (a *UserApiService) UserMinWithdrawalFee(ctx context.Context, localVarOptionals *UserMinWithdrawalFeeOpts) (UserWithdrawalFees, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue interface{}
+		localVarReturnValue UserWithdrawalFees
 	)
 
 	// create path and map variables
