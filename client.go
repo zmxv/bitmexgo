@@ -189,6 +189,16 @@ func parameterToString(obj interface{}, collectionFormat string) string {
 	return fmt.Sprintf("%v", obj)
 }
 
+// nestedParameterToRequestString convert interface{} parameters to JsonString for request, using a delimiter if provided.
+func nestedParameterToRequestString(obj interface{}) string {
+	jsonBytes, err := json.Marshal(obj)
+	if err != nil {
+		fmt.Println("JSON Marshal error:", err)
+		return ""
+	}
+	return fmt.Sprintf("[%v]", strings.Replace(strings.Replace(string(jsonBytes), "[", "", -1), "]", "", -1))
+}
+
 // callAPI do the request.
 func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 	return c.cfg.HTTPClient.Do(request)

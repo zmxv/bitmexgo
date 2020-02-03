@@ -8,5 +8,8 @@
 # Test binary, build with `go test -c`
 *.test
 
+# Debug configuration for vscode
+.vscode/launch.json
+
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out

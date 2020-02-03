@@ -245,8 +245,46 @@ func (a *OrderApiService) OrderAmendBulk(ctx context.Context, localVarOptionals 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	if localVarOptionals != nil && localVarOptionals.Orders.IsSet() {
-		localVarFormParams.Add("orders", parameterToString(localVarOptionals.Orders.Value(), ""))
+	if localVarOptionals != nil {
+		var localVarFormParamSet []map[string][]string
+		for _, localVarOptional := range localVarOptionals {
+			localVarFormParam := url.Values{}
+			if localVarOptional != nil && localVarOptional.OrderID.IsSet() {
+				localVarFormParam.Add("orderID", parameterToString(localVarOptional.OrderID.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.OrigClOrdID.IsSet() {
+				localVarFormParam.Add("origClOrdID", parameterToString(localVarOptional.OrigClOrdID.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.ClOrdID.IsSet() {
+				localVarFormParam.Add("clOrdID", parameterToString(localVarOptional.ClOrdID.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.SimpleOrderQty.IsSet() {
+				localVarFormParam.Add("simpleOrderQty", parameterToString(localVarOptional.SimpleOrderQty.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.OrderQty.IsSet() {
+				localVarFormParam.Add("orderQty", parameterToString(localVarOptional.OrderQty.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.SimpleLeavesQty.IsSet() {
+				localVarFormParam.Add("simpleLeavesQty", parameterToString(localVarOptional.SimpleLeavesQty.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.LeavesQty.IsSet() {
+				localVarFormParam.Add("leavesQty", parameterToString(localVarOptional.LeavesQty.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.Price.IsSet() {
+				localVarFormParam.Add("price", parameterToString(localVarOptional.Price.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.StopPx.IsSet() {
+				localVarFormParam.Add("stopPx", parameterToString(localVarOptional.StopPx.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.PegOffsetValue.IsSet() {
+				localVarFormParam.Add("pegOffsetValue", parameterToString(localVarOptional.PegOffsetValue.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.Text.IsSet() {
+				localVarFormParam.Add("text", parameterToString(localVarOptional.Text.Value(), ""))
+			}
+			localVarFormParamSet = append(localVarFormParamSet, localVarFormParam)
+		}
+		localVarFormParams.Add("orders", nestedParameterToRequestString(localVarFormParamSet))
 	}
 
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -1282,8 +1320,59 @@ func (a *OrderApiService) OrderNewBulk(ctx context.Context, localVarOptionals *O
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	if localVarOptionals != nil && localVarOptionals.Orders.IsSet() {
-		localVarFormParams.Add("orders", parameterToString(localVarOptionals.Orders.Value(), ""))
+	if localVarOptionals != nil {
+		var localVarFormParamSet []map[string][]string
+		for _, localVarOptional := range localVarOptionals {
+			localVarFormParam := url.Values{}
+			localVarFormParam.Add("symbol", parameterToString(symbol, ""))
+			if localVarOptional != nil && localVarOptional.Side.IsSet() {
+				localVarFormParam.Add("side", parameterToString(localVarOptional.Side.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.SimpleOrderQty.IsSet() {
+				localVarFormParam.Add("simpleOrderQty", parameterToString(localVarOptional.SimpleOrderQty.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.OrderQty.IsSet() {
+				localVarFormParam.Add("orderQty", parameterToString(localVarOptional.OrderQty.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.Price.IsSet() {
+				localVarFormParam.Add("price", parameterToString(localVarOptional.Price.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.DisplayQty.IsSet() {
+				localVarFormParam.Add("displayQty", parameterToString(localVarOptional.DisplayQty.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.StopPx.IsSet() {
+				localVarFormParam.Add("stopPx", parameterToString(localVarOptional.StopPx.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.ClOrdID.IsSet() {
+				localVarFormParam.Add("clOrdID", parameterToString(localVarOptional.ClOrdID.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.ClOrdLinkID.IsSet() {
+				localVarFormParam.Add("clOrdLinkID", parameterToString(localVarOptional.ClOrdLinkID.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.PegOffsetValue.IsSet() {
+				localVarFormParam.Add("pegOffsetValue", parameterToString(localVarOptional.PegOffsetValue.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.PegPriceType.IsSet() {
+				localVarFormParam.Add("pegPriceType", parameterToString(localVarOptional.PegPriceType.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.OrdType.IsSet() {
+				localVarFormParam.Add("ordType", parameterToString(localVarOptional.OrdType.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.TimeInForce.IsSet() {
+				localVarFormParam.Add("timeInForce", parameterToString(localVarOptional.TimeInForce.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.ExecInst.IsSet() {
+				localVarFormParam.Add("execInst", parameterToString(localVarOptional.ExecInst.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.ContingencyType.IsSet() {
+				localVarFormParam.Add("contingencyType", parameterToString(localVarOptional.ContingencyType.Value(), ""))
+			}
+			if localVarOptional != nil && localVarOptional.Text.IsSet() {
+				localVarFormParam.Add("text", parameterToString(localVarOptional.Text.Value(), ""))
+			}
+			localVarFormParamSet = append(localVarFormParamSet, localVarFormParam)
+		}
+		localVarFormParams.Add("orders", nestedParameterToRequestString(localVarFormParamSet))
 	}
 
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
